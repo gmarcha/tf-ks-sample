@@ -52,6 +52,15 @@ terraform destroy
 - Terraform Google Cloud Platform (GCP) Network module [documentation](https://registry.terraform.io/modules/terraform-google-modules/network/google/latest)
 - Terraform Google Kubernetes Engine (GKE) module [documentation](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest)
 
+## Author
+
+[@gmarcha](https://github.com/gmarcha)
+[@c3b5aw](https://github.com/c3b5aw)
+
+## License
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 [^1]: see Terraform [documentation](https://developer.hashicorp.com/terraform/downloads) or Docker [image](https://hub.docker.com/r/hashicorp/terraform/).
 [^2]: see GCP [documentation](https://cloud.google.com/sdk/docs/install) or Docker [image](https://hub.docker.com/r/google/cloud-sdk/).
 [^3]: see GCP [documentation](https://cloud.google.com/iam/docs/service-accounts-create).
