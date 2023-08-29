@@ -18,5 +18,17 @@ bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/comp
 bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/resourcemanager.projectIamAdmin"
 
 # Required for Terraform KubeSphere Helm release.
-# - permissions: ["container.clusterRoles.create", "container.clusterRoleBindings.create"]
+# permissions:
+# - container.clusterRoles.create
+# - container.clusterRoleBindings.create
 bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/container.admin"
+
+# Required for Terraform backend based on GCS.
+# permissions:
+# - storage.buckets.list
+# - storage.buckets.create
+# - storage.objects.get
+# - storage.objects.create
+# - storage.objects.update
+# - storage.objects.delete
+bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/storage.admin"
