@@ -1,0 +1,3 @@
+project             = "project-id"
+credentials_file    = "../credentials/credentials.json"
+name                = "tf-ks-sample"
