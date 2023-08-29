@@ -22,6 +22,8 @@ gcloud auth login
 gcloud config set project "${PROJECT_ID}"
 ```
 
+---
+
 Create a `credentials.json` file from a GCP service account configured with necessary permissions[^3] (see `/scripts/serviceaccount.sh`),
 - roles/iam.serviceAccountAdmin,
 - roles/iam.serviceAccountUser,
@@ -31,6 +33,8 @@ Create a `credentials.json` file from a GCP service account configured with nece
 - roles/compute.viewer,
 - roles/compute.securityAdmin[^4],
 - roles/resourcemanager.projectIamAdmin[^5].
+
+---
 
 Configure project variables directly in an interactive fashion by running Terraform CLI,
 or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`.
@@ -46,6 +50,8 @@ terraform apply
 ```bash
 terraform destroy
 ```
+
+---
 
 Change KubeSphere Helm chart values in `/provision/gcp-gke/config/ks-installer-values.yaml`,
 - enable devops toolchain,
