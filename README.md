@@ -22,6 +22,8 @@ gcloud auth login
 gcloud config set project "${PROJECT_ID}"
 ```
 
+---
+
 Create a `credentials.json` file from a GCP service account configured with necessary permissions[^3] (see `/scripts/serviceaccount.sh`),
 - roles/iam.serviceAccountAdmin,
 - roles/iam.serviceAccountUser,
@@ -32,8 +34,10 @@ Create a `credentials.json` file from a GCP service account configured with nece
 - roles/compute.securityAdmin[^4],
 - roles/resourcemanager.projectIamAdmin[^5].
 
+---
+
 Configure project variables directly in an interactive fashion by running Terraform CLI,
-or replace values in `provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`.
+or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`.
 
 ```bash
 cd provision/gcp-gke
@@ -47,15 +51,26 @@ terraform apply
 terraform destroy
 ```
 
+---
+
+Change KubeSphere Helm chart values in `/provision/gcp-gke/config/ks-installer-values.yaml`,
+- enable devops toolchain,
+- enable service mesh,
+- etc...
+
 ## Documentation
 
+- Terraform Google Cloud Plateform provider [documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 - Terraform Google Cloud Platform (GCP) Network module [documentation](https://registry.terraform.io/modules/terraform-google-modules/network/google/latest)
 - Terraform Google Kubernetes Engine (GKE) module [documentation](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest)
+- Terraform Helm provider [documentation](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
+- Terraform Kubernetes provider [documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)
+- Custom roles on GCP [documentation](https://cloud.google.com/iam/docs/creating-custom-roles)
 
-## Author
+## Authors
 
-[@gmarcha](https://github.com/gmarcha)\
-[@c3b5aw](https://github.com/c3b5aw)
+[@c3b5aw](https://github.com/c3b5aw)\
+[@gmarcha](https://github.com/gmarcha)
 
 ## License
 
