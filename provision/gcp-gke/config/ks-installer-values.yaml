@@ -1,7 +1,6 @@
 cc:
   common:
-    core:
-      # console: {}
+    # core: {}
     redis:
       enabled: false
     openldap:
