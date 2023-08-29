@@ -16,3 +16,7 @@ bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/cont
 bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/compute.viewer"
 bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/compute.securityAdmin"
 bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/resourcemanager.projectIamAdmin"
+
+# Required for Terraform KubeSphere Helm release.
+# - permissions: ["container.clusterRoles.create", "container.clusterRoleBindings.create"]
+bash scripts/serviceaccounts/add-policy.sh > /dev/null "${1}" "${2}" "roles/container.admin"

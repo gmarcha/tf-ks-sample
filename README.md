@@ -33,7 +33,7 @@ Create a `credentials.json` file from a GCP service account configured with nece
 - roles/resourcemanager.projectIamAdmin[^5].
 
 Configure project variables directly in an interactive fashion by running Terraform CLI,
-or replace values in `provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`.
+or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`.
 
 ```bash
 cd provision/gcp-gke
@@ -47,15 +47,21 @@ terraform apply
 terraform destroy
 ```
 
+Change KubeSphere Helm chart values in `/provision/gcp-gke/config/ks-installer-values.yaml`,
+- enable devops toolchain,
+- enable service mesh,
+- etc...
+
 ## Documentation
 
 - Terraform Google Cloud Platform (GCP) Network module [documentation](https://registry.terraform.io/modules/terraform-google-modules/network/google/latest)
 - Terraform Google Kubernetes Engine (GKE) module [documentation](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest)
+- Custom roles on GCP [documentation](https://cloud.google.com/iam/docs/creating-custom-roles)
 
-## Author
+## Authors
 
-[@gmarcha](https://github.com/gmarcha)\
-[@c3b5aw](https://github.com/c3b5aw)
+[@c3b5aw](https://github.com/c3b5aw)\
+[@gmarcha](https://github.com/gmarcha)
 
 ## License
 
