@@ -54,7 +54,7 @@ terraform destroy
 
 ## Author
 
-[@gmarcha](https://github.com/gmarcha)
+[@gmarcha](https://github.com/gmarcha)\
 [@c3b5aw](https://github.com/c3b5aw)
 
 ## License
