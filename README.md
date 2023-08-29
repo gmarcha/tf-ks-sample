@@ -60,8 +60,11 @@ Change KubeSphere Helm chart values in `/provision/gcp-gke/config/ks-installer-v
 
 ## Documentation
 
+- Terraform Google Cloud Plateform provider [documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 - Terraform Google Cloud Platform (GCP) Network module [documentation](https://registry.terraform.io/modules/terraform-google-modules/network/google/latest)
 - Terraform Google Kubernetes Engine (GKE) module [documentation](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest)
+- Terraform Helm provider [documentation](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
+- Terraform Kubernetes provider [documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)
 - Custom roles on GCP [documentation](https://cloud.google.com/iam/docs/creating-custom-roles)
 
 ## Authors
