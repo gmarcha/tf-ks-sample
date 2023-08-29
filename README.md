@@ -70,11 +70,13 @@ cc:
 
 - Create and manage custom roles on GCP, see [documentation](https://cloud.google.com/iam/docs/creating-custom-roles).
 
+
 - Terraform Google Cloud Plateform provider [documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs).
 - Terraform Google Cloud Platform (GCP) Network module [documentation](https://registry.terraform.io/modules/terraform-google-modules/network/google/latest).
 - Terraform Google Kubernetes Engine (GKE) module [documentation](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/latest).
 - Terraform Helm provider [documentation](https://registry.terraform.io/providers/hashicorp/helm/latest/docs).
 - Terraform Kubernetes provider [documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
+
 
 - Store Terraform state in a Google Cloud Storage (GCS) bucket, see GCP [documentation](https://cloud.google.com/docs/terraform/resource-management/store-state) and Terraform [documentation](https://developer.hashicorp.com/terraform/language/settings/backends/gcs).
 
