@@ -25,12 +25,13 @@ gcloud config set project "${PROJECT_ID}"
 
 ---
 
-Create a `credentials.json` key file from a GCP service account configured with necessary permissions[^3]:
+Create a `credentials.json` key file from a GCP service account configured with necessary permissions[^3], then uncomment credentials values in Terraform provider:
 
 ```bash
 export PROJECT_ID="MY_PROJECT"
 export SERVICE_ACCOUNT_NAME="ts-ks-sample"
 bash scripts/serviceaccount.sh "${SERVICE_ACCOUNT_NAME}" "${PROJECT_ID}"
+sed -i 's/# //g' provision/gcp-gke/main.tf
 ```
 
 This script creates a service account, binds policies to it and generates a json key file for using it. Please read `/scripts/serviceaccount.sh` and `/scripts/serviceaccounts/*.sh` to create other policy bindings or generate key for an existing service account.

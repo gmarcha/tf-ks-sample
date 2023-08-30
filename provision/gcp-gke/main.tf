@@ -16,7 +16,7 @@ provider "kubernetes" {
 
 provider "google" {
   project     = var.project
-  credentials = file(var.credentials_file)
+  # credentials = file(var.credentials_file)
 
   region = var.region
   zone   = var.zone
@@ -24,7 +24,7 @@ provider "google" {
 
 provider "google-beta" {
   project     = var.project
-  credentials = file(var.credentials_file)
+  # credentials = file(var.credentials_file)
 
   region = var.region
   zone   = var.zone
