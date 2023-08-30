@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'provision/gcp-gke/**'
 
 env:
   TF_CLOUD_ORGANIZATION: "gmarcha"

@@ -2,6 +2,8 @@ name: "Terraform Plan"
 
 on:
   pull_request:
+    paths:
+      - 'provision/gcp-gke/**'
 
 env:
   TF_CLOUD_ORGANIZATION: "gmarcha"
