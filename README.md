@@ -15,6 +15,24 @@ An Infrastructure-as-Code to bootstrap KubeSphere on GKE with Terraform.
 
 ## Usage
 
+### Production
+
+Login to Terraform Cloud with `terraform` CLI:
+
+```bash
+terraform login
+```
+
+Execute commands on remote Terraform state stored in Terraform cloud:
+
+```bash
+terraform plan
+terraform apply
+terraform destroy
+```
+
+### Development
+
 Login to Google Cloud Platform with `gcloud` CLI:
 
 ```bash
