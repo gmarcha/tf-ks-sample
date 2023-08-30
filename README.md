@@ -1,4 +1,4 @@
-# tf-ks-sample
+# tf-ks-sample <br> [![Terraform Plan](https://github.com/gmarcha/tf-ks-sample/actions/workflows/terraform-plan.yaml/badge.svg)](https://github.com/gmarcha/tf-ks-sample/actions/workflows/terraform-plan.yaml)[![Terraform Apply](https://github.com/gmarcha/tf-ks-sample/actions/workflows/terraform-apply.yaml/badge.svg)](https://github.com/gmarcha/tf-ks-sample/actions/workflows/terraform-apply.yaml)
 
 An Infrastructure-as-Code to bootstrap KubeSphere on GKE with Terraform.
 
