@@ -80,6 +80,7 @@ cc:
 
 ---
 
+- Use Github Actions and Terraform Cloud for state handling, see Terraform [documentation](https://developer.hashicorp.com/terraform/tutorials/automation/github-actions).
 - Store Terraform state in a Google Cloud Storage (GCS) bucket, see GCP [documentation](https://cloud.google.com/docs/terraform/resource-management/store-state) and Terraform [documentation](https://developer.hashicorp.com/terraform/language/settings/backends/gcs).
 
 ## Authors

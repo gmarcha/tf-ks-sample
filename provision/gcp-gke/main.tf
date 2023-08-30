@@ -61,18 +61,18 @@ module "gcp-network" {
 module "gke" {
   source = "terraform-google-modules/kubernetes-engine/google"
 
-  project_id                 = var.project
-  name                       = "${var.name}-default-cluster"
-  region                     = var.region
-  zones                      = var.zones
+  project_id = var.project
+  name       = "${var.name}-default-cluster"
+  region     = var.region
+  zones      = var.zones
 
-  network                    = module.gcp-network.network_name
-  subnetwork                 = module.gcp-network.subnets_names[0]
-  ip_range_pods              = "${var.name}-ip-range-pods"
-  ip_range_services          = "${var.name}-ip-range-services"
+  network           = module.gcp-network.network_name
+  subnetwork        = module.gcp-network.subnets_names[0]
+  ip_range_pods     = "${var.name}-ip-range-pods"
+  ip_range_services = "${var.name}-ip-range-services"
 
-  remove_default_node_pool   = true
-  service_account            = "create"
+  remove_default_node_pool = true
+  service_account          = "create"
 
   horizontal_pod_autoscaling = true
   http_load_balancing        = false

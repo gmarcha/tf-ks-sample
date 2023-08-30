@@ -8,7 +8,7 @@ variable "credentials_file" {
 
 variable "name" {
   description = "Prefix name for all provisioned resources"
-  default = "terraform"
+  default     = "terraform"
 }
 
 variable "region" {
