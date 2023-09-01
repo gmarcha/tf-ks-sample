@@ -15,7 +15,7 @@ An Infrastructure-as-Code to bootstrap KubeSphere on GKE with Terraform.
 
 ## Usage
 
-### Production
+### Cloud
 
 Login to Terraform Cloud with `terraform` CLI:
 
@@ -23,7 +23,7 @@ Login to Terraform Cloud with `terraform` CLI:
 terraform login
 ```
 
-Execute commands on remote Terraform state stored in Terraform cloud:
+Execute commands on remote state stored in Terraform cloud:
 
 ```bash
 terraform plan
@@ -31,9 +31,32 @@ terraform apply
 terraform destroy
 ```
 
-### Development
+Configure project variables directly in Terraform cloud console (including GCP credentials).
 
-Login to Google Cloud Platform with `gcloud` CLI:
+### Local
+
+Login to Google Cloud Platform with `gcloud` CLI using Application Default Credentials (ADC). It is the recommended way to run Terraform on a local workstation. Then be careful to comment Terraform cloud backend configuration.
+
+```bash
+gcloud auth application-default login
+sed -i 's/^\([^#]\)/# \1/g' provision/gcp-gke/backend.tf
+```
+
+Configure project variables in an interactive fashion by running Terraform CLI,
+or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`. 
+
+```bash
+cd provision/gcp-gke
+# cp terraform.tfvars.sample terraform.tfvars # optional, replace values
+terraform init
+terraform plan # optional
+terraform apply
+terraform destroy
+```
+
+### Remote machine
+
+Login to Google Cloud Platform with `gcloud` CLI. It is required to create a GCP service account and its associated json key file. Google Cloud uses a service account key to authenticate and authorize requests to GCP API from an external machine.
 
 ```bash
 export PROJECT_ID="MY_PROJECT"
@@ -41,31 +64,21 @@ gcloud auth login
 gcloud config set project "${PROJECT_ID}"
 ```
 
----
-
-Create a `credentials.json` key file from a GCP service account configured with necessary permissions[^3], then uncomment credentials values in Terraform provider:
+Create a json key file from a service account configured with necessary permissions[^3]. This script creates a service account, binds policies to it and generates a json key file for using it. Please read `/scripts/serviceaccount.sh` and `/scripts/serviceaccounts/*.sh` to create other policy bindings or generate key for an existing service account.
 
 ```bash
 export PROJECT_ID="MY_PROJECT"
 export SERVICE_ACCOUNT_NAME="ts-ks-sample"
 bash scripts/serviceaccount.sh "${SERVICE_ACCOUNT_NAME}" "${PROJECT_ID}"
-sed -i 's/# //g' provision/gcp-gke/main.tf
 ```
 
-This script creates a service account, binds policies to it and generates a json key file for using it. Please read `/scripts/serviceaccount.sh` and `/scripts/serviceaccounts/*.sh` to create other policy bindings or generate key for an existing service account.
-
----
-
-Configure project variables directly in an interactive fashion by running Terraform CLI,
-or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`:
+Configure project variables with `/provision/gcp-gke/terraform.tfvars.sample`, rename file to `terraform.tfvars` and run Terraform CLI.
 
 ```bash
+export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/ts-ks-sample.json"
 cd provision/gcp-gke
-cp terraform.tfvars.sample terraform.tfvars # optional, replace values
-terraform init
-terraform plan # optional
-terraform apply
-terraform destroy
+cp terraform.tfvars.sample terraform.tfvars
+terraform init -backend-config="..."
 ```
 
 ---
@@ -77,13 +90,13 @@ cc:
   servicemesh:
     enable: true
 ```
-- enable continous integration toolchain powered by Jenkins:
+- enable continous integration toolchain powered by Jenkins, SonarQube and Harbor:
 ```yaml
 cc:
   devops:
     enabled: true
 ```
-- enable many other integrated features.
+- enable other integrated features...
 
 ## Documentation
 
