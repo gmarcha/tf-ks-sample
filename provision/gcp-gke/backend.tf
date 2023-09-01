@@ -1,9 +1,9 @@
-# terraform {
-#   cloud {
-#     organization = "gmarcha"
+terraform {
+  cloud {
+    organization = "gmarcha"
 
-#     workspaces {
-#       name = "landing-deploy-gcp-gke"
-#     }
-#   }
-# }
+    workspaces {
+      name = "landing-deploy-gcp-gke"
+    }
+  }
+}
