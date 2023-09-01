@@ -10,8 +10,8 @@ An Infrastructure-as-Code to bootstrap KubeSphere on GKE with Terraform.
 
 ## Requirements
 
-- `gcloud`[^1] CLI,
-- `terraform`[^2] CLI.
+- `gcloud`[^1] CLI
+- `terraform`[^2] CLI
 
 ## Usage
 
@@ -35,15 +35,14 @@ Configure project variables directly in Terraform cloud console (including GCP c
 
 ### Local
 
-Login to Google Cloud Platform with `gcloud` CLI using Application Default Credentials (ADC). It is the recommended way to run Terraform on a local workstation. Then be careful to comment Terraform cloud backend configuration.
+Login to Google Cloud Platform with `gcloud` CLI using Application Default Credentials (ADC). This is the recommended way to run Terraform on a local workstation. Then be careful to comment Terraform cloud backend configuration.
 
 ```bash
 gcloud auth application-default login
 sed -i 's/^\([^#]\)/# \1/g' provision/gcp-gke/backend.tf
 ```
 
-Configure project variables in an interactive fashion by running Terraform CLI,
-or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`. 
+Configure project variables in an interactive fashion by running Terraform CLI, or replace values in `/provision/gcp-gke/terraform.tfvars.sample` and rename file to `terraform.tfvars`. 
 
 ```bash
 cd provision/gcp-gke
@@ -64,7 +63,7 @@ gcloud auth login
 gcloud config set project "${PROJECT_ID}"
 ```
 
-Create a json key file from a service account configured with necessary permissions[^3]. This script creates a service account, binds policies to it and generates a json key file for using it. Please read `/scripts/serviceaccount.sh` and `/scripts/serviceaccounts/*.sh` to create other policy bindings or generate key for an existing service account.
+Create a json key file from a service account configured with necessary permissions. This script creates a service account, binds policies to it and generates a json key file for using it. Please read `/scripts/serviceaccount.sh` and `/scripts/serviceaccounts/*.sh` to create other policy bindings or generate key for an existing service account.[^3]
 
 ```bash
 export PROJECT_ID="MY_PROJECT"
